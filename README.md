@@ -25,8 +25,13 @@ sudo yum install -y java-1.8.0-openjdk
 
 Altassian 全系列软件后端数据库支持 MySQL，选择 MySQL 为后端数据库
 
+[https://dev.mysql.com/downloads/repo/yum/](https://dev.mysql.com/downloads/repo/yum/)
+
 ```bash
 sudo apt install -y mysql-server
+wget http://repo.mysql.com/mysql-community-release-el7-5.noarch.rpm
+sudo rpm -ivh mysql-community-release-el7-5.noarch.rpm
+sudo yum update
 sudo yum install -y mysql mysql-server
 ```
 
@@ -128,4 +133,3 @@ wget -o /opt/atlassian/atlassian-agent.jar https://ftp.skylens.co/atlassian/atla
 echo '#!/bin/sh
 export JAVA_OPTS="-javaagent:/opt/atlassian/atlassian-agent.jar ${JAVA_OPTS}"' >> /etc/profile.d/atlassian-agent.sh
 ```
-
