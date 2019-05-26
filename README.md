@@ -67,7 +67,7 @@ SET GLOBAL validate_password_policy=LOW;
 -- 创建本地认证的用户
 CREATE USER 'atlassian'@'localhost' IDENTIFIED BY 'atlassian';
 -- 创建安装 confluence 所需的数据库
-CREATE DATABASE confluence CHARACTER SET utf8 COLLATE utf8mb4_bin;
+CREATE DATABASE confluence CHARACTER SET utf8mb4 COLLATE utf8mb4_bin;
 -- 赋予 atlassian 对 confluence 的所有权限
 GRANT ALL PRIVILEGES ON confluence.* TO 'atlassian'@'localhost' IDENTIFIED BY 'atlassian' WITH GRANT OPTION;
 -- 创建安装 bitbucket 所需的数据库
