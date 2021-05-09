@@ -27,3 +27,11 @@ docker build -t atlassian/confluence:${confluence_version} .
 docker images | grep atlassian/confluence:${confluence_version}
 ```
 
+### Docker 运行
+
+```bash
+docker run --name=confluence -itd atlassian/confluence:7.4.8
+
+# dcoker-compose
+docker-compose up -d
+```
