@@ -1,0 +1,30 @@
+version: '3'
+services:
+    db:
+      image: mysql:5.7
+      container_name: mysql
+      restart: always
+      networks:
+        - confluencenet
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=confluence
+        - MYSQL_USER=confluence
+        - MYSQL_PASS=confluence
+        - TZ=Asia/Shanghai
+      command: [mysqld, --character-set-server=utf8mb4, --collation-server=utf8mb4_bin, --default-storage-engine=INNODB, --innodb_default_row_format=DYNAMIC, --innodb_file_format=Barracuda, --max_allowed_packet=256M, --innodb_log_file_size=2GB, --transaction-isolation=READ-COMMITTED, --binlog_format=row]
+
+    atlassian-confluence:
+      image: atlassian/confluence:7.4.8
+      container_name: atlassian-confluence
+      restart: always
+      networks:
+        - confluencenet
+      ports:
+        - 8090:8090
+      environment:
+        - TZ=Asia/Shanghai
+
+networks:
+    confluencenet: {}
+
